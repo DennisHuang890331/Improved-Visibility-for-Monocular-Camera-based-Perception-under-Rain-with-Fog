@@ -1,23 +1,36 @@
-# The Depth-Guided Features and Semantic Loss based Rain Removal Method for Enhancing Scene Understanding
+# Improved Visibility for Monocular Camera-based Perception under Rain with Fog
+### An Efficient Vision Transformer Approach with Depth-Guided Spatial Feature Transform (DG-SFT) and Semantic Loss
 
-Note: The code will be released publicly available upon acceptance of this work by a journal.
+[![Paper](https://img.shields.io/badge/Paper-ScienceDirect-red)](https://www.sciencedirect.com/science/article/pii/S0957417425042769)
+[![DOI](https://img.shields.io/badge/DOI-10.1016%2Fj.eswa.2025.130661-blue)](https://doi.org/10.1016/j.eswa.2025.130661)
+[![TF](https://img.shields.io/badge/TensorFlow-%3E%3D2.10-orange)](#installation)
 
-## Abstact
+Official Keras implementation of the ESWA paper:
+**“Improved Visibility for Monocular Camera-based Perception in Autonomous Driving Systems under Rain with Fog: An Efficient Vision Transformer Approach.”**
 
-The spatial visibility of rain within the image space exhibits variability, with proximate objects mainly influenced by rain streaks, whereas distant objects are more significantly impacted by fog. Existing methods typically focus merely on removing rain streaks, neglecting the fog effect, which limits their effectiveness. Current semantic segmentation methods, essential for scene understanding in autonomous driving, exhibit vulnerability to such environmental disturbances. However, there is little discussion about how the quality of restored images affects their performance in semantic segmentation tasks. In this work, we propose an efficient Vision Transformer-based model that integrates a Depth-Guided Spatial Feature Transform block. This block leverages spatial information from an inverse depth map estimated by the model, producing depth-guided features to eliminate the variable spatial visibility caused by rain streaks and fog. Additionally, we introduce a novel semantic loss function that enhances both the restoration quality and accuracy of semantic segmentation models when applied to these restored images. This is achieved by minimizing the probability distribution discrepancy between the segmentation maps of ground truth and restored images. Our method was evaluated on the RainCityscapes dataset, where it outperformed state-of-the-art approaches and demonstrated the lowest latency among all ViT-based methods. Additionally, it achieved speeds comparable to the fastest CNN model. It yields higher mIOU scores with various segmentation models and has shown effectiveness on real-world rain images.
+## Abstract
+Adverse weather degrades image quality and undermines the reliability of monocular camera-based perception in autonomous driving. Most existing deraining methods primarily remove rain streaks while overlooking fog-like effects, which further obscure distant scene details and harm downstream perception. This work presents an efficient Vision Transformer (ViT)-based restoration framework that addresses both rain streaks and fog without compromising perception accuracy. The proposed model introduces a Depth-Guided Spatial Feature Transform (DG-SFT) block that leverages depth information predicted by a lightweight CNN decoder and is designed based on a mathematical rain model to mitigate distance-dependent haze. In addition, we propose a semantic loss that constrains the discrepancy between segmentation outputs of the original and restored images. Experiments on RainCityscapes and real-world rainy images show improved PSNR/SSIM over prior ViT- and CNN-based baselines, while achieving 7.86 ms inference latency, supporting latency-critical deployment.
 
-## Architecture
+## Model Architecture
 
-![model Architecture](image/README/Architecture.png "Overview of the proposed network. ")
+<p align="center">
+  <img src="image/README/Architecture.png" width="95%">
+</p>
+<p align="center"><em>Overview of the proposed network.</em></p>
 
 ## Comparison on RainCityscapes
+<p align="center">
+  <img src="image/README/1732081399839.png" width="95%">
+</p>
+<p align="center">
+  <img src="image\README\2026-02-23 144923.png" width="80%">
+</p>
 
-![1732081399839](image/README/1732081399839.png)
 
 ## Analysis on downstream task
-
-![1732081441406](image/README/1732081441406.png)
-
-## Use the Code
-
-**TBD**
+<p align="center">
+  <img src="image\README\1732081441406.png" width="95%">
+</p>
+<p align="center">
+  <img src="image\README\1231256876867.png" width="95%">
+</p>
